@@ -1,0 +1,240 @@
+/* src/index.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.App {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  width: 100%;
+  max-width: 1200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.App:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  animation: fadeInDown 0.5s ease;
+}
+
+header h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+header form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+header input, header button, header select {
+  padding: 15px;
+  margin: 5px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+header input:focus, header button:focus, header select:focus {
+  border-color: #1a73e8;
+  background-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+}
+
+header button {
+  background-color: #1a73e8;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: #1669bb;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main ul {
+  list-style-type: none;
+  padding: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+main li {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s, opacity 0.3s;
+  animation: fadeInUp 0.5s ease;
+}
+
+main li.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  background-color: rgba(224, 224, 224, 0.7);
+}
+
+main li.low-priority {
+  border-left: 8px solid green;
+}
+
+main li.medium-priority {
+  border-left: 8px solid yellow;
+}
+
+main li.high-priority {
+  border-left: 8px solid red;
+}
+
+main li .todo-content {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+main li small {
+  color: #555;
+  margin-top: 5px;
+}
+
+main li input[type="text"],
+main li input[type="date"],
+main li select {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+main li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ef4444;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form input, form button {
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+form input:focus, form button:focus {
+  border-color: #1a73e8;
+  background-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+}
+
+form button {
+  background-color: #1a73e8;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1669bb;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 600px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header form {
+    flex-direction: row;
+  }
+
+  header input {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  form input, form button {
+    margin: 5px;
+  }
+
+  main ul {
+    max-height: 70vh;
+  }
+}
